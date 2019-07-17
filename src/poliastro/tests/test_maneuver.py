@@ -71,7 +71,7 @@ def test_bielliptic_maneuver():
     expected_t_trans = 593.919803 * u.h
 
     man = Maneuver.bielliptic(ss_i, Earth.R + alt_b, Earth.R + alt_f)
-
+    print(Earth.R)
     assert_allclose(ss_i.apply_maneuver(man).ecc, 0 * u.one, atol=1e-12 * u.one)
     assert_quantity_allclose(man.get_total_cost(), expected_dv, rtol=1e-5)
     assert_quantity_allclose(man.get_total_time(), expected_t_trans, rtol=1e-6)
